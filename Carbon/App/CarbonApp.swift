@@ -7,12 +7,19 @@
 
 import SwiftUI
 import SwiftData
+import ComposableArchitecture
 
 @main
 struct CarbonApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
+    let root = StoreOf<Root>(initialState: Root.State()) {
+        Root()
+    }
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+           
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -25,7 +32,7 @@ struct CarbonApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView(store: root)
         }
         .modelContainer(sharedModelContainer)
     }

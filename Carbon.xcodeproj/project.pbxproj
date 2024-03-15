@@ -8,19 +8,51 @@
 
 /* Begin PBXBuildFile section */
 		3A2CE8BA2BA4C1750021B106 /* CarbonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8B92BA4C1750021B106 /* CarbonApp.swift */; };
-		3A2CE8BC2BA4C1750021B106 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8BB2BA4C1750021B106 /* ContentView.swift */; };
-		3A2CE8BE2BA4C1750021B106 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8BD2BA4C1750021B106 /* Item.swift */; };
 		3A2CE8C02BA4C1780021B106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A2CE8BF2BA4C1780021B106 /* Assets.xcassets */; };
 		3A2CE8C32BA4C1780021B106 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A2CE8C22BA4C1780021B106 /* Preview Assets.xcassets */; };
+		3A2CE8CF2BA4C1BB0021B106 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8CB2BA4C1BB0021B106 /* SceneDelegate.swift */; };
+		3A2CE8D12BA4C1BB0021B106 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8CD2BA4C1BB0021B106 /* RootView.swift */; };
+		3A2CE8D22BA4C1BB0021B106 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8CE2BA4C1BB0021B106 /* TabBar.swift */; };
+		3A2CE8D52BA4C1F10021B106 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 3A2CE8D42BA4C1F10021B106 /* ComposableArchitecture */; };
+		3A2CE8D82BA4C25F0021B106 /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 3A2CE8D72BA4C25F0021B106 /* RiveRuntime */; };
+		3A2CE8DB2BA4C2830021B106 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8D92BA4C2830021B106 /* CardView.swift */; };
+		3A2CE8DC2BA4C2830021B106 /* CardsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8DA2BA4C2830021B106 /* CardsListView.swift */; };
+		3A2CE8DF2BA4C2B60021B106 /* leaf_animation.riv in Resources */ = {isa = PBXBuildFile; fileRef = 3A2CE8DE2BA4C2B60021B106 /* leaf_animation.riv */; };
+		3A2CE8E12BA4C2E60021B106 /* EntryWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8E02BA4C2E60021B106 /* EntryWidget.swift */; };
+		3A2CE8E32BA4C3260021B106 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8E22BA4C3260021B106 /* AppDelegate.swift */; };
+		3A2CE8E62BA4C3590021B106 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8E52BA4C3590021B106 /* CustomTabBar.swift */; };
+		3A2CE8E82BA4C3730021B106 /* PassThroughWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8E72BA4C3730021B106 /* PassThroughWindow.swift */; };
+		3A2CE8EA2BA4C4480021B106 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8E92BA4C4480021B106 /* DashboardView.swift */; };
+		3A2CE8EC2BA4C76A0021B106 /* TransactionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8EB2BA4C76A0021B106 /* TransactionsListView.swift */; };
+		3A2CE8EE2BA4C7780021B106 /* TransactionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8ED2BA4C7780021B106 /* TransactionRowView.swift */; };
+		3A2CE8F02BA4C78A0021B106 /* TransactionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8EF2BA4C78A0021B106 /* TransactionDetailsView.swift */; };
+		3A2CE8F32BA4C7FF0021B106 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8F22BA4C7FF0021B106 /* Card.swift */; };
+		3A2CE8F52BA4C8280021B106 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8F42BA4C8280021B106 /* Transaction.swift */; };
+		3A2CE8F72BA4D5800021B106 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8F62BA4D5800021B106 /* Tab.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3A2CE8B62BA4C1750021B106 /* Carbon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carbon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A2CE8B92BA4C1750021B106 /* CarbonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonApp.swift; sourceTree = "<group>"; };
-		3A2CE8BB2BA4C1750021B106 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		3A2CE8BD2BA4C1750021B106 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		3A2CE8BF2BA4C1780021B106 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A2CE8C22BA4C1780021B106 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3A2CE8CB2BA4C1BB0021B106 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3A2CE8CD2BA4C1BB0021B106 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		3A2CE8CE2BA4C1BB0021B106 /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		3A2CE8D92BA4C2830021B106 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		3A2CE8DA2BA4C2830021B106 /* CardsListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsListView.swift; sourceTree = "<group>"; };
+		3A2CE8DE2BA4C2B60021B106 /* leaf_animation.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = leaf_animation.riv; sourceTree = "<group>"; };
+		3A2CE8E02BA4C2E60021B106 /* EntryWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EntryWidget.swift; path = ../Features/EntryWidget.swift; sourceTree = "<group>"; };
+		3A2CE8E22BA4C3260021B106 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3A2CE8E52BA4C3590021B106 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		3A2CE8E72BA4C3730021B106 /* PassThroughWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassThroughWindow.swift; sourceTree = "<group>"; };
+		3A2CE8E92BA4C4480021B106 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		3A2CE8EB2BA4C76A0021B106 /* TransactionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsListView.swift; sourceTree = "<group>"; };
+		3A2CE8ED2BA4C7780021B106 /* TransactionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRowView.swift; sourceTree = "<group>"; };
+		3A2CE8EF2BA4C78A0021B106 /* TransactionDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsView.swift; sourceTree = "<group>"; };
+		3A2CE8F22BA4C7FF0021B106 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		3A2CE8F42BA4C8280021B106 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		3A2CE8F62BA4D5800021B106 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A2CE8D52BA4C1F10021B106 /* ComposableArchitecture in Frameworks */,
+				3A2CE8D82BA4C25F0021B106 /* RiveRuntime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,9 +87,11 @@
 		3A2CE8B82BA4C1750021B106 /* Carbon */ = {
 			isa = PBXGroup;
 			children = (
-				3A2CE8B92BA4C1750021B106 /* CarbonApp.swift */,
-				3A2CE8BB2BA4C1750021B106 /* ContentView.swift */,
-				3A2CE8BD2BA4C1750021B106 /* Item.swift */,
+				3A2CE8F12BA4C7F50021B106 /* Models */,
+				3A2CE8E42BA4C33F0021B106 /* Components */,
+				3A2CE8DD2BA4C2A00021B106 /* Resources */,
+				3A2CE8CA2BA4C1860021B106 /* App */,
+				3A2CE8C92BA4C1800021B106 /* Features */,
 				3A2CE8BF2BA4C1780021B106 /* Assets.xcassets */,
 				3A2CE8C12BA4C1780021B106 /* Preview Content */,
 			);
@@ -68,6 +104,59 @@
 				3A2CE8C22BA4C1780021B106 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3A2CE8C92BA4C1800021B106 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				3A2CE8DA2BA4C2830021B106 /* CardsListView.swift */,
+				3A2CE8D92BA4C2830021B106 /* CardView.swift */,
+				3A2CE8E92BA4C4480021B106 /* DashboardView.swift */,
+				3A2CE8EB2BA4C76A0021B106 /* TransactionsListView.swift */,
+				3A2CE8ED2BA4C7780021B106 /* TransactionRowView.swift */,
+				3A2CE8EF2BA4C78A0021B106 /* TransactionDetailsView.swift */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		3A2CE8CA2BA4C1860021B106 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				3A2CE8CD2BA4C1BB0021B106 /* RootView.swift */,
+				3A2CE8CB2BA4C1BB0021B106 /* SceneDelegate.swift */,
+				3A2CE8CE2BA4C1BB0021B106 /* TabBar.swift */,
+				3A2CE8B92BA4C1750021B106 /* CarbonApp.swift */,
+				3A2CE8E22BA4C3260021B106 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		3A2CE8DD2BA4C2A00021B106 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3A2CE8DE2BA4C2B60021B106 /* leaf_animation.riv */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3A2CE8E42BA4C33F0021B106 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3A2CE8E02BA4C2E60021B106 /* EntryWidget.swift */,
+				3A2CE8E52BA4C3590021B106 /* CustomTabBar.swift */,
+				3A2CE8E72BA4C3730021B106 /* PassThroughWindow.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		3A2CE8F12BA4C7F50021B106 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3A2CE8F22BA4C7FF0021B106 /* Card.swift */,
+				3A2CE8F42BA4C8280021B106 /* Transaction.swift */,
+				3A2CE8F62BA4D5800021B106 /* Tab.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +175,10 @@
 			dependencies = (
 			);
 			name = Carbon;
+			packageProductDependencies = (
+				3A2CE8D42BA4C1F10021B106 /* ComposableArchitecture */,
+				3A2CE8D72BA4C25F0021B106 /* RiveRuntime */,
+			);
 			productName = Carbon;
 			productReference = 3A2CE8B62BA4C1750021B106 /* Carbon.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +207,10 @@
 				Base,
 			);
 			mainGroup = 3A2CE8AD2BA4C1750021B106;
+			packageReferences = (
+				3A2CE8D32BA4C1F10021B106 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				3A2CE8D62BA4C25E0021B106 /* XCRemoteSwiftPackageReference "rive-ios" */,
+			);
 			productRefGroup = 3A2CE8B72BA4C1750021B106 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -130,6 +227,7 @@
 			files = (
 				3A2CE8C32BA4C1780021B106 /* Preview Assets.xcassets in Resources */,
 				3A2CE8C02BA4C1780021B106 /* Assets.xcassets in Resources */,
+				3A2CE8DF2BA4C2B60021B106 /* leaf_animation.riv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,9 +238,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A2CE8BC2BA4C1750021B106 /* ContentView.swift in Sources */,
-				3A2CE8BE2BA4C1750021B106 /* Item.swift in Sources */,
+				3A2CE8F02BA4C78A0021B106 /* TransactionDetailsView.swift in Sources */,
+				3A2CE8F72BA4D5800021B106 /* Tab.swift in Sources */,
+				3A2CE8E32BA4C3260021B106 /* AppDelegate.swift in Sources */,
+				3A2CE8F52BA4C8280021B106 /* Transaction.swift in Sources */,
+				3A2CE8EC2BA4C76A0021B106 /* TransactionsListView.swift in Sources */,
+				3A2CE8DB2BA4C2830021B106 /* CardView.swift in Sources */,
+				3A2CE8EE2BA4C7780021B106 /* TransactionRowView.swift in Sources */,
+				3A2CE8DC2BA4C2830021B106 /* CardsListView.swift in Sources */,
+				3A2CE8D12BA4C1BB0021B106 /* RootView.swift in Sources */,
+				3A2CE8F32BA4C7FF0021B106 /* Card.swift in Sources */,
+				3A2CE8E82BA4C3730021B106 /* PassThroughWindow.swift in Sources */,
+				3A2CE8E62BA4C3590021B106 /* CustomTabBar.swift in Sources */,
+				3A2CE8EA2BA4C4480021B106 /* DashboardView.swift in Sources */,
 				3A2CE8BA2BA4C1750021B106 /* CarbonApp.swift in Sources */,
+				3A2CE8CF2BA4C1BB0021B106 /* SceneDelegate.swift in Sources */,
+				3A2CE8D22BA4C1BB0021B106 /* TabBar.swift in Sources */,
+				3A2CE8E12BA4C2E60021B106 /* EntryWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +458,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3A2CE8D32BA4C1F10021B106 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.9.2;
+			};
+		};
+		3A2CE8D62BA4C25E0021B106 /* XCRemoteSwiftPackageReference "rive-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rive-app/rive-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3A2CE8D42BA4C1F10021B106 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A2CE8D32BA4C1F10021B106 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		3A2CE8D72BA4C25F0021B106 /* RiveRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A2CE8D62BA4C25E0021B106 /* XCRemoteSwiftPackageReference "rive-ios" */;
+			productName = RiveRuntime;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3A2CE8AE2BA4C1750021B106 /* Project object */;
 }
