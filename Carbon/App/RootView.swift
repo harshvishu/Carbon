@@ -14,6 +14,7 @@ struct Root {
     @Reducer(state: .equatable)
     enum Path {
         case emissions(EmissionDetails)  // TODO: Need a State
+        case transactionDetails(TransactionDetail)
     }
     
     @ObservableState
@@ -58,10 +59,43 @@ struct RootView: View {
                 .task {
                     initializeCustomTabBar()
                 }
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            // TODO: move to scanner
+                            @Dependency(\.transactionDatabase.add) var add
+                            let transaction = Transaction(amount: 200, _description: "Electricity", type: .debit, category: .electricity)
+                            try? add(transaction)
+                        } label: {
+                            Image(systemName: "qrcode.viewfinder")
+                                .frame(width: 32, height: 32)
+                                .clipped()
+                        }
+                        .foregroundStyle(.primary)
+                    }
+                    
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        NavigationLink {
+                            Text("Profile")
+                        } label: {
+                            HStack {
+                                Image(.profilePic)
+                                    .resizable()
+                                    .frame(width: 32, height: 32)
+                                    .clipShape(Circle())
+                                Text("Hi, Harsh")
+                            }
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+                .toolbar(store.tabs.currentTab == .dashboard ? .visible : .hidden, for: .navigationBar)
         } destination: { store in
             switch store.case {
             case let .emissions(store):
                 EmissionDetailsView(store: store)
+            case let .transactionDetails(store: store):
+                TransactionDetailsView(store: store)
             }
         }
     }

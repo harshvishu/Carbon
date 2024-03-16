@@ -56,6 +56,17 @@ enum TransactionCategory: Equatable, Codable, Identifiable {
     }
     
     case water
+    case travel(Travel)
+    enum Travel: Equatable, Codable {
+        case internationalFlight
+        case domesticFlight
+        case dieselTrain
+        case electricTrain
+        case dieselBus
+        case electricBus
+        case fuelCab
+        case electricCab
+    }
     
     var activity_id: String {
         switch self {
@@ -66,18 +77,35 @@ enum TransactionCategory: Equatable, Codable, Identifiable {
             case .diesel:"passenger_vehicle-vehicle_type_car-fuel_source_diesel-distance_long-engine_size_na"
             }
         case .water: "water_supply-type_na"
+        case let .travel(type):
+            switch type {
+                
+            case .internationalFlight:
+                "passenger_flight-route_type_international-aircraft_type_na-distance_long_haul_gt_3700km-class_business-rf_included"
+            case .domesticFlight:
+                "passenger_flight-route_type_domestic-aircraft_type_jet-distance_na-class_na-rf_included"
+            case .electricTrain:
+                "passenger_train-route_type_local-fuel_source_electricity"
+            case .dieselTrain:
+                "passenger_train-route_type_local-fuel_source_diesel"
+            case .dieselBus:
+                "passenger_vehicle-vehicle_type_bus-fuel_source_diesel-distance_na-engine_size_na"
+            case .electricBus:
+                "passenger_vehicle-vehicle_type_city_bus-fuel_source_bev-distance_na-engine_size_na"
+            case .fuelCab:
+                "passenger_vehicle-vehicle_type_black_cab-fuel_source_na-engine_size_na-vehicle_age_na-vehicle_weight_na"
+            case .electricCab:
+                "passenger_vehicle-vehicle_type_business_travel_car-fuel_source_bev-engine_size_na-vehicle_age_na-vehicle_weight_na"
+            }
         }
     }
     
     var name: String {
         switch self {
-        case .electricity: "Electricity"
-        case let .fuel(type):
-            switch type {
-            case .petrol: "Petrol"
-            case .diesel:"Diesel"
-            }
-        case .water: "Water"
+        case .electricity: "Electricity Bill"
+        case .fuel: "Gas Station"
+        case .travel: "Travel"
+        case .water: "Water Bill"
         }
     }
     
@@ -86,6 +114,19 @@ enum TransactionCategory: Equatable, Codable, Identifiable {
         case .electricity: "bolt.fill"
         case .fuel: "fuelpump.fill"
         case .water: "waterbottle.fill"
+        case let .travel(type):
+            switch type {
+            case .internationalFlight, .domesticFlight:
+                "airplane"
+            case .dieselTrain, .electricTrain:
+                "tram"
+            case .electricBus, .dieselBus:
+                "bus"
+            case .fuelCab:
+                "car.side"
+            case .electricCab:
+                "bolt.car"
+            }
         }
     }
 }

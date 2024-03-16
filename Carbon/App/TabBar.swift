@@ -31,7 +31,8 @@ struct TabBarFeature {
             switch action {
             case .dashboard:
                 return .none
-            case .selectTab:
+            case let .selectTab(tab):
+                state.currentTab = tab
                 return .none
             }
         }
@@ -49,7 +50,7 @@ struct TabBarView: View {
         TabView(selection: .init(get: {
             store.state.currentTab
         }, set: { newTab in
-            store.send(.selectTab(newTab))
+            store.send(.selectTab(newTab), animation: .easeInOut)
         }), content:  {
             DashboardView(store: store.scope(state: \.dashboard, action: \.dashboard))
                 .hideNativeTabBar()
@@ -57,6 +58,22 @@ struct TabBarView: View {
                     Text(Tab.dashboard.title)
                 }
                 .tag(Tab.dashboard)
+            
+            CardsListView(store: store.scope(state: \.dashboard.cardsList, action: \.dashboard.cardsList))
+                .hideNativeTabBar()
+                .tag(Tab.cards)
+            
+            ScanToPayView()
+                .hideNativeTabBar()
+                .tag(Tab.pay)
+            
+            Text("Notifications")
+                .hideNativeTabBar()
+                .tag(Tab.notifications)
+            
+            Text("Emissions")
+                .hideNativeTabBar()
+                .tag(Tab.carbon)
         })
         
     }

@@ -33,11 +33,12 @@ struct CardView: View {
                 .font(.body)
         }
         .lineLimit(1)
-        .frame(width: 170, height: 200)
-        .padding(4)
+//        .frame(width: 170, height: 200)
+        .aspectRatio(1.7, contentMode: .fit)
+        .padding()
         .background(Color.gray.opacity(0.2))
         .cornerRadius(10)
-        .padding()
+        
     }
     
     // Function to obfuscate number (showing only first character)

@@ -126,36 +126,6 @@ struct DashboardView: View {
         }
         .scrollIndicators(.hidden)
         .zIndex(1)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    // TODO: move to scanner
-                    @Dependency(\.transactionDatabase.add) var add
-                    let transaction = Transaction(amount: 200, _description: "Electricity", type: .debit, category: .electricity)
-                    try? add(transaction)
-                } label: {
-                    Image(systemName: "qrcode.viewfinder")
-                        .frame(width: 32, height: 32)
-                        .clipped()
-                }
-                .foregroundStyle(.primary)
-            }
-            
-            ToolbarItem(placement: .navigationBarLeading) {
-                NavigationLink {
-                    Text("Profile")
-                } label: {
-                    HStack {
-                        Image(.profilePic)
-                            .resizable()
-                            .frame(width: 32, height: 32)
-                            .clipShape(Circle())
-                        Text("Hi, Harsh")
-                    }
-                }
-                .buttonStyle(.plain)
-            }
-        }
     }
 }
 

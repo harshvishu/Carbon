@@ -35,6 +35,8 @@
 		3A2CE9022BA560130021B106 /* EmissionsQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE9012BA560130021B106 /* EmissionsQuery.swift */; };
 		3A2CE9042BA565BC0021B106 /* EmissionAPIVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE9032BA565BC0021B106 /* EmissionAPIVersion.swift */; };
 		3A2CE9062BA567530021B106 /* EmissionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE9052BA567530021B106 /* EmissionDetailsView.swift */; };
+		3A2CE9092BA595FF0021B106 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 3A2CE9082BA595FF0021B106 /* CodeScanner */; };
+		3A2CE90B2BA596C70021B106 /* ScanToPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE90A2BA596C70021B106 /* ScanToPayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,7 @@
 		3A2CE9012BA560130021B106 /* EmissionsQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmissionsQuery.swift; sourceTree = "<group>"; };
 		3A2CE9032BA565BC0021B106 /* EmissionAPIVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmissionAPIVersion.swift; sourceTree = "<group>"; };
 		3A2CE9052BA567530021B106 /* EmissionDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmissionDetailsView.swift; sourceTree = "<group>"; };
+		3A2CE90A2BA596C70021B106 /* ScanToPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanToPayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,7 @@
 			files = (
 				3A2CE8D52BA4C1F10021B106 /* ComposableArchitecture in Frameworks */,
 				3A2CE8D82BA4C25F0021B106 /* RiveRuntime in Frameworks */,
+				3A2CE9092BA595FF0021B106 /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +133,7 @@
 				3A2CE8ED2BA4C7780021B106 /* TransactionRowView.swift */,
 				3A2CE8EF2BA4C78A0021B106 /* TransactionDetailsView.swift */,
 				3A2CE9052BA567530021B106 /* EmissionDetailsView.swift */,
+				3A2CE90A2BA596C70021B106 /* ScanToPayView.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -204,6 +209,7 @@
 			packageProductDependencies = (
 				3A2CE8D42BA4C1F10021B106 /* ComposableArchitecture */,
 				3A2CE8D72BA4C25F0021B106 /* RiveRuntime */,
+				3A2CE9082BA595FF0021B106 /* CodeScanner */,
 			);
 			productName = Carbon;
 			productReference = 3A2CE8B62BA4C1750021B106 /* Carbon.app */;
@@ -236,6 +242,7 @@
 			packageReferences = (
 				3A2CE8D32BA4C1F10021B106 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				3A2CE8D62BA4C25E0021B106 /* XCRemoteSwiftPackageReference "rive-ios" */,
+				3A2CE9072BA595FF0021B106 /* XCRemoteSwiftPackageReference "CodeScanner" */,
 			);
 			productRefGroup = 3A2CE8B72BA4C1750021B106 /* Products */;
 			projectDirPath = "";
@@ -283,6 +290,7 @@
 				3A2CE9022BA560130021B106 /* EmissionsQuery.swift in Sources */,
 				3A2CE8EA2BA4C4480021B106 /* DashboardView.swift in Sources */,
 				3A2CE8BA2BA4C1750021B106 /* CarbonApp.swift in Sources */,
+				3A2CE90B2BA596C70021B106 /* ScanToPayView.swift in Sources */,
 				3A2CE8CF2BA4C1BB0021B106 /* SceneDelegate.swift in Sources */,
 				3A2CE8D22BA4C1BB0021B106 /* TabBar.swift in Sources */,
 				3A2CE8FE2BA558980021B106 /* EmissionsAPIClient.swift in Sources */,
@@ -422,6 +430,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Carbon/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Required to scan QR codes";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -450,6 +459,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Carbon/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Required to scan QR codes";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -508,6 +518,14 @@
 				minimumVersion = 5.9.1;
 			};
 		};
+		3A2CE9072BA595FF0021B106 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -520,6 +538,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3A2CE8D62BA4C25E0021B106 /* XCRemoteSwiftPackageReference "rive-ios" */;
 			productName = RiveRuntime;
+		};
+		3A2CE9082BA595FF0021B106 /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A2CE9072BA595FF0021B106 /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

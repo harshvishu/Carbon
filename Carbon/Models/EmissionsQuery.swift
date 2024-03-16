@@ -13,7 +13,7 @@ struct EmissionsQuery: Codable, Sendable {
     
     struct EmissionFactor: Codable, Sendable {
         var activity_id: String
-        var data_version: String = "^6"
+        var data_version: String = "^10"
         var region_fallback = true
         var region = "IN"   // India for now
     }
@@ -36,6 +36,8 @@ struct EmissionsQuery: Codable, Sendable {
         
         var weight: Double?
         var weight_unit: WeightUnit?
+        
+        var passengers: Int?
         
         init(energy: Double, energy_unit: EnergyUnit) {
             self.energy = energy
@@ -72,6 +74,12 @@ struct EmissionsQuery: Codable, Sendable {
         init(weight: Double, weight_unit: WeightUnit, distance: Double, distance_unit: DistanceUnit) {
             self.weight = weight
             self.weight_unit = weight_unit
+            self.distance = distance
+            self.distance_unit = distance_unit
+        }
+        
+        init(passengers: Int, distance: Double, distance_unit: DistanceUnit) {
+            self.passengers = passengers
             self.distance = distance
             self.distance_unit = distance_unit
         }
