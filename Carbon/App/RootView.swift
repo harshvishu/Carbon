@@ -11,13 +11,19 @@ import ComposableArchitecture
 
 @Reducer
 struct Root {
+    @Reducer(state: .equatable)
+    enum Path {
+        case emissions(EmissionDetails)  // TODO: Need a State
+    }
     
     @ObservableState
     struct State: Equatable {
+        var path = StackState<Path.State>()
         var tabs = TabBarFeature.State()
     }
     
-    enum Action: Equatable {
+    enum Action {
+        case path(StackAction<Path.State, Path.Action>)
         case tabs(TabBarFeature.Action)
     }
     
@@ -27,12 +33,18 @@ struct Root {
             TabBarFeature()
         }
         
-        Reduce { state, action in
+        Reduce<State, Action> { state, action in
             switch action {
+            case .path:
+                return .none
+            case let .tabs(.dashboard(.transactionsList(.transactions(.element(id: _, action: .delegate(.showEmissions(emissions))))))):
+                state.path.append(.emissions(EmissionDetails.State(emissions: emissions)))
+                return .none
             case .tabs:
                 return .none
             }
         }
+        .forEach(\.path, action: \.path)
     }
 }
 
@@ -41,10 +53,17 @@ struct RootView: View {
     @Bindable var store: StoreOf<Root>
     
     var body: some View {
-        TabBarView(store: store.scope(state: \.tabs, action: \.tabs))
-            .task {
-                initializeCustomTabBar()
+        NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
+            TabBarView(store: store.scope(state: \.tabs, action: \.tabs))
+                .task {
+                    initializeCustomTabBar()
+                }
+        } destination: { store in
+            switch store.case {
+            case let .emissions(store):
+                EmissionDetailsView(store: store)
             }
+        }
     }
 }
 

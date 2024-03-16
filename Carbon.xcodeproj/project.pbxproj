@@ -30,6 +30,11 @@
 		3A2CE8F52BA4C8280021B106 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8F42BA4C8280021B106 /* Transaction.swift */; };
 		3A2CE8F72BA4D5800021B106 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8F62BA4D5800021B106 /* Tab.swift */; };
 		3A2CE8FA2BA548320021B106 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8F92BA548320021B106 /* Database.swift */; };
+		3A2CE8FE2BA558980021B106 /* EmissionsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8FD2BA558980021B106 /* EmissionsAPIClient.swift */; };
+		3A2CE9002BA55A580021B106 /* Emissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8FF2BA55A580021B106 /* Emissions.swift */; };
+		3A2CE9022BA560130021B106 /* EmissionsQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE9012BA560130021B106 /* EmissionsQuery.swift */; };
+		3A2CE9042BA565BC0021B106 /* EmissionAPIVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE9032BA565BC0021B106 /* EmissionAPIVersion.swift */; };
+		3A2CE9062BA567530021B106 /* EmissionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE9052BA567530021B106 /* EmissionDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +60,11 @@
 		3A2CE8F42BA4C8280021B106 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		3A2CE8F62BA4D5800021B106 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		3A2CE8F92BA548320021B106 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		3A2CE8FD2BA558980021B106 /* EmissionsAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmissionsAPIClient.swift; sourceTree = "<group>"; };
+		3A2CE8FF2BA55A580021B106 /* Emissions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emissions.swift; sourceTree = "<group>"; };
+		3A2CE9012BA560130021B106 /* EmissionsQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmissionsQuery.swift; sourceTree = "<group>"; };
+		3A2CE9032BA565BC0021B106 /* EmissionAPIVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmissionAPIVersion.swift; sourceTree = "<group>"; };
+		3A2CE9052BA567530021B106 /* EmissionDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmissionDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +128,7 @@
 				3A2CE8EB2BA4C76A0021B106 /* TransactionsListView.swift */,
 				3A2CE8ED2BA4C7780021B106 /* TransactionRowView.swift */,
 				3A2CE8EF2BA4C78A0021B106 /* TransactionDetailsView.swift */,
+				3A2CE9052BA567530021B106 /* EmissionDetailsView.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -158,6 +169,9 @@
 				3A2CE8F22BA4C7FF0021B106 /* Card.swift */,
 				3A2CE8F42BA4C8280021B106 /* Transaction.swift */,
 				3A2CE8F62BA4D5800021B106 /* Tab.swift */,
+				3A2CE8FF2BA55A580021B106 /* Emissions.swift */,
+				3A2CE9012BA560130021B106 /* EmissionsQuery.swift */,
+				3A2CE9032BA565BC0021B106 /* EmissionAPIVersion.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -166,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				3A2CE8F92BA548320021B106 /* Database.swift */,
+				3A2CE8FD2BA558980021B106 /* EmissionsAPIClient.swift */,
 			);
 			path = Dependency;
 			sourceTree = "<group>";
@@ -253,6 +268,8 @@
 				3A2CE8F72BA4D5800021B106 /* Tab.swift in Sources */,
 				3A2CE8E32BA4C3260021B106 /* AppDelegate.swift in Sources */,
 				3A2CE8F52BA4C8280021B106 /* Transaction.swift in Sources */,
+				3A2CE9042BA565BC0021B106 /* EmissionAPIVersion.swift in Sources */,
+				3A2CE9062BA567530021B106 /* EmissionDetailsView.swift in Sources */,
 				3A2CE8EC2BA4C76A0021B106 /* TransactionsListView.swift in Sources */,
 				3A2CE8DB2BA4C2830021B106 /* CardView.swift in Sources */,
 				3A2CE8FA2BA548320021B106 /* Database.swift in Sources */,
@@ -261,11 +278,14 @@
 				3A2CE8D12BA4C1BB0021B106 /* RootView.swift in Sources */,
 				3A2CE8F32BA4C7FF0021B106 /* Card.swift in Sources */,
 				3A2CE8E82BA4C3730021B106 /* PassThroughWindow.swift in Sources */,
+				3A2CE9002BA55A580021B106 /* Emissions.swift in Sources */,
 				3A2CE8E62BA4C3590021B106 /* CustomTabBar.swift in Sources */,
+				3A2CE9022BA560130021B106 /* EmissionsQuery.swift in Sources */,
 				3A2CE8EA2BA4C4480021B106 /* DashboardView.swift in Sources */,
 				3A2CE8BA2BA4C1750021B106 /* CarbonApp.swift in Sources */,
 				3A2CE8CF2BA4C1BB0021B106 /* SceneDelegate.swift in Sources */,
 				3A2CE8D22BA4C1BB0021B106 /* TabBar.swift in Sources */,
+				3A2CE8FE2BA558980021B106 /* EmissionsAPIClient.swift in Sources */,
 				3A2CE8E12BA4C2E60021B106 /* EntryWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,15 @@
+meta {
+  name: Basic Estimate
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://api.climatiq.io/estimate
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer $CLIMATIQ_API_KEY
+}

@@ -19,7 +19,7 @@ final class Transaction: Identifiable {
     var category: TransactionCategory
     var date: Date = Date()
     var fromAccount: String
-    var co2e: String?
+    var emissions: Emissions?
     
     init(amount: Double, _description: String, type: TransactionType, category: TransactionCategory, fromAccount: String = "") {
         self.amount = amount

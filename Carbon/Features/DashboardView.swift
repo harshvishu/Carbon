@@ -50,6 +50,10 @@ struct Dashboard{
             CardsList()
         }
         
+        Scope(state: \.transactionsList, action: \.transactionsList) {
+            TransactionsList()
+        }
+        
         Reduce<State, Action> { state, action in
             switch action {
             case .cardsList:
@@ -67,90 +71,89 @@ struct DashboardView: View {
     let quickActions: [TransactionCategory] = [.electricity, .fuel(.petrol), .water]
     
     var body: some View {
-        NavigationStack {
-            ScrollViewReader { scroll in
-                List {
-                    // Cards List View
-                    CardsListView(store: store.scope(state: \.cardsList, action: \.cardsList))
-                        .listRowSeparator(.hidden)
-                    
-                    Section {
-                        ScrollView(.horizontal) {
-                            LazyHStack{
-                                ForEach(quickActions) { action in
-                                    Label(action.name, systemImage: action.icon)
-                                        .padding(.horizontal, 16)
-                                        .padding(.vertical, 8)
-                                        .background {
-                                            ZStack {
-                                                RoundedRectangle(cornerRadius: 8)
-                                                    .fill(.primary)
-                                                    .offset(x: 2, y: 2)
-                                                RoundedRectangle(cornerRadius: 8)
-                                                    .fill(.background)
-                                            }
-                                        }
-                                        .overlay(
+        
+        ScrollViewReader { scroll in
+            List {
+                // Cards List View
+                CardsListView(store: store.scope(state: \.cardsList, action: \.cardsList))
+                    .listRowSeparator(.hidden)
+                
+                Section {
+                    ScrollView(.horizontal) {
+                        LazyHStack{
+                            ForEach(quickActions) { action in
+                                Label(action.name, systemImage: action.icon)
+                                    .padding(.horizontal, 16)
+                                    .padding(.vertical, 8)
+                                    .background {
+                                        ZStack {
                                             RoundedRectangle(cornerRadius: 8)
-                                                .stroke(.primary, lineWidth: 1)
-                                        )
-                                        .scrollTargetLayout()
-                                }
+                                                .fill(.primary)
+                                                .offset(x: 2, y: 2)
+                                            RoundedRectangle(cornerRadius: 8)
+                                                .fill(.background)
+                                        }
+                                    }
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .stroke(.primary, lineWidth: 1)
+                                    )
+                                    .scrollTargetLayout()
                             }
                         }
-                        .scrollTargetBehavior(.viewAligned)
+                    }
+                    .scrollTargetBehavior(.viewAligned)
+                    .listRowSeparator(.hidden)
+                } header: {
+                    Text("quick actions".uppercased())
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .listRowSeparator(.hidden)
-                    } header: {
-                        Text("quick actions".uppercased())
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .listRowSeparator(.hidden)
-                    }
-                    .listSectionSeparator(.hidden)
-                   
-                    Section {
-                        TransactionsListView(store: store.scope(state: \.transactionsList, action: \.transactionsList))
-                    } header: {
-                        Text("today".uppercased())
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .listRowSeparator(.hidden)
-                        
-                    }
-                    .listSectionSeparator(.hidden)
                 }
-                .listStyle(.plain)
-                .listRowInsets(.none)
-            }
-            .scrollIndicators(.hidden)
-            .zIndex(1)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        // TODO: move to scanner
-                        @Dependency(\.transactionDatabase.add) var add
-                        let transaction = Transaction(amount: 200, _description: "Electricity", type: .debit, category: .electricity)
-                        try? add(transaction)
-                    } label: {
-                        Image(systemName: "qrcode.viewfinder")
-                            .frame(width: 32, height: 32)
-                            .clipped()
-                    }
-                    .foregroundStyle(.primary)
-                }
+                .listSectionSeparator(.hidden)
                 
-                ToolbarItem(placement: .navigationBarLeading) {
-                    NavigationLink {
-                        Text("Profile")
-                    } label: {
-                        HStack {
-                            Image(.profilePic)
-                                .resizable()
-                                .frame(width: 32, height: 32)
-                                .clipShape(Circle())
-                            Text("Hi, Harsh")
-                        }
-                    }
-                    .buttonStyle(.plain)
+                Section {
+                    TransactionsListView(store: store.scope(state: \.transactionsList, action: \.transactionsList))
+                } header: {
+                    Text("today".uppercased())
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .listRowSeparator(.hidden)
+                    
                 }
+                .listSectionSeparator(.hidden)
+            }
+            .listStyle(.plain)
+            .listRowInsets(.none)
+        }
+        .scrollIndicators(.hidden)
+        .zIndex(1)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    // TODO: move to scanner
+                    @Dependency(\.transactionDatabase.add) var add
+                    let transaction = Transaction(amount: 200, _description: "Electricity", type: .debit, category: .electricity)
+                    try? add(transaction)
+                } label: {
+                    Image(systemName: "qrcode.viewfinder")
+                        .frame(width: 32, height: 32)
+                        .clipped()
+                }
+                .foregroundStyle(.primary)
+            }
+            
+            ToolbarItem(placement: .navigationBarLeading) {
+                NavigationLink {
+                    Text("Profile")
+                } label: {
+                    HStack {
+                        Image(.profilePic)
+                            .resizable()
+                            .frame(width: 32, height: 32)
+                            .clipShape(Circle())
+                        Text("Hi, Harsh")
+                    }
+                }
+                .buttonStyle(.plain)
             }
         }
     }
