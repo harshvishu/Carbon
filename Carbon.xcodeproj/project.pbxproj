@@ -29,6 +29,7 @@
 		3A2CE8F32BA4C7FF0021B106 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8F22BA4C7FF0021B106 /* Card.swift */; };
 		3A2CE8F52BA4C8280021B106 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8F42BA4C8280021B106 /* Transaction.swift */; };
 		3A2CE8F72BA4D5800021B106 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8F62BA4D5800021B106 /* Tab.swift */; };
+		3A2CE8FA2BA548320021B106 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE8F92BA548320021B106 /* Database.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		3A2CE8F22BA4C7FF0021B106 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		3A2CE8F42BA4C8280021B106 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		3A2CE8F62BA4D5800021B106 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		3A2CE8F92BA548320021B106 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 		3A2CE8B82BA4C1750021B106 /* Carbon */ = {
 			isa = PBXGroup;
 			children = (
+				3A2CE8F82BA548250021B106 /* Dependency */,
 				3A2CE8F12BA4C7F50021B106 /* Models */,
 				3A2CE8E42BA4C33F0021B106 /* Components */,
 				3A2CE8DD2BA4C2A00021B106 /* Resources */,
@@ -157,6 +160,14 @@
 				3A2CE8F62BA4D5800021B106 /* Tab.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3A2CE8F82BA548250021B106 /* Dependency */ = {
+			isa = PBXGroup;
+			children = (
+				3A2CE8F92BA548320021B106 /* Database.swift */,
+			);
+			path = Dependency;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +255,7 @@
 				3A2CE8F52BA4C8280021B106 /* Transaction.swift in Sources */,
 				3A2CE8EC2BA4C76A0021B106 /* TransactionsListView.swift in Sources */,
 				3A2CE8DB2BA4C2830021B106 /* CardView.swift in Sources */,
+				3A2CE8FA2BA548320021B106 /* Database.swift in Sources */,
 				3A2CE8EE2BA4C7780021B106 /* TransactionRowView.swift in Sources */,
 				3A2CE8DC2BA4C2830021B106 /* CardsListView.swift in Sources */,
 				3A2CE8D12BA4C1BB0021B106 /* RootView.swift in Sources */,

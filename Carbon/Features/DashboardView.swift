@@ -37,28 +37,7 @@ struct Dashboard{
             )
         )
         
-        var transactionsList = TransactionsList.State(
-            transactions: IdentifiedArrayOf<Transaction.State>(
-                arrayLiteral: Transaction.State(
-                    amount: 1200,
-                    description: "Electricity Bill",
-                    type: .debit,
-                    category: .electricity
-                ),
-                Transaction.State(
-                    amount: 5000,
-                    description: "petrol",
-                    type: .debit,
-                    category: .fuel(.petrol)
-                ),
-                Transaction.State(
-                    amount: 200,
-                    description: "Water Bill",
-                    type: .debit,
-                    category: .water
-                )
-            )
-        )
+        var transactionsList = TransactionsList.State()
     }
     
     enum Action: Equatable {
@@ -85,54 +64,77 @@ struct Dashboard{
 struct DashboardView: View {
     let store: StoreOf<Dashboard>
     
+    let quickActions: [TransactionCategory] = [.electricity, .fuel(.petrol), .water]
+    
     var body: some View {
         NavigationStack {
             ScrollViewReader { scroll in
-                ScrollView(.vertical) {
+                List {
                     // Cards List View
                     CardsListView(store: store.scope(state: \.cardsList, action: \.cardsList))
+                        .listRowSeparator(.hidden)
                     
-                    VStack(alignment: .leading, spacing: 16) {
-                        Text("quick actions".uppercased())
-                            .font(.footnote)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        
+                    Section {
                         ScrollView(.horizontal) {
                             LazyHStack{
-                                ForEach(1...10, id: \.self) { count in
-                                    Label("Action", systemImage: "\(count).square.fill")
-                                        .padding(.horizontal, 8)
-                                        .padding(.vertical, 4)
-                                        .border(Color.black, width: 1)
+                                ForEach(quickActions) { action in
+                                    Label(action.name, systemImage: action.icon)
+                                        .padding(.horizontal, 16)
+                                        .padding(.vertical, 8)
+                                        .background {
+                                            ZStack {
+                                                RoundedRectangle(cornerRadius: 8)
+                                                    .fill(.primary)
+                                                    .offset(x: 2, y: 2)
+                                                RoundedRectangle(cornerRadius: 8)
+                                                    .fill(.background)
+                                            }
+                                        }
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 8)
+                                                .stroke(.primary, lineWidth: 1)
+                                        )
                                         .scrollTargetLayout()
                                 }
                             }
                         }
                         .scrollTargetBehavior(.viewAligned)
-                        
-                        LazyVStack(alignment: .leading, spacing: 20) {
-                            Text("today".uppercased())
-                                .font(.footnote)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            
-                            TransactionsListView(store: store.scope(state: \.transactionsList, action: \.transactionsList))
-                        }
+                        .listRowSeparator(.hidden)
+                    } header: {
+                        Text("quick actions".uppercased())
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .listRowSeparator(.hidden)
                     }
-                    .padding(.top)
-                    .padding(.horizontal)
+                    .listSectionSeparator(.hidden)
+                   
+                    Section {
+                        TransactionsListView(store: store.scope(state: \.transactionsList, action: \.transactionsList))
+                    } header: {
+                        Text("today".uppercased())
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .listRowSeparator(.hidden)
+                        
+                    }
+                    .listSectionSeparator(.hidden)
                 }
+                .listStyle(.plain)
+                .listRowInsets(.none)
             }
             .scrollIndicators(.hidden)
             .zIndex(1)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink {
-                        Text("Carbon")
+                    Button {
+                        // TODO: move to scanner
+                        @Dependency(\.transactionDatabase.add) var add
+                        let transaction = Transaction(amount: 200, _description: "Electricity", type: .debit, category: .electricity)
+                        try? add(transaction)
                     } label: {
                         Image(systemName: "qrcode.viewfinder")
                             .frame(width: 32, height: 32)
                             .clipped()
                     }
+                    .foregroundStyle(.primary)
                 }
                 
                 ToolbarItem(placement: .navigationBarLeading) {

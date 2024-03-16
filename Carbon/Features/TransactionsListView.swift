@@ -13,18 +13,27 @@ import ComposableArchitecture
 struct TransactionsList {
     @ObservableState
     struct State: Equatable {
-        var transactions: IdentifiedArrayOf<Transaction.State> = []
+        var transactions: IdentifiedArrayOf<Transaction> = []
+        
+        init() {
+            @Dependency(\.transactionDatabase.fetchAll) var fetchAll
+            do {
+                try self.transactions = IdentifiedArray(uniqueElements: fetchAll())
+            } catch {
+                print(error)
+            }
+        }
     }
     
     enum Action: Equatable {
-        case transactions(IdentifiedActionOf<Transaction>)
+//        case transactions(IdentifiedActionOf<Transaction>)
     }
     
     var body: some Reducer<State, Action> {
       EmptyReducer()
-        .forEach(\.transactions, action: \.transactions) {
-            Transaction()
-        }
+//        .forEach(\.transactions, action: \.transactions) {
+//            TransactionDetail()
+//        }
     }
 }
 
@@ -32,7 +41,7 @@ struct TransactionsListView: View {
     let store: StoreOf<TransactionsList>
     
     var body: some View {
-        ForEach(store.scope(state: \.transactions, action: \.transactions)) {
+        ForEach(store.transactions) {
             TransactionRowView(store: $0)
         }
     }

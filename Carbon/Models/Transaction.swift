@@ -7,22 +7,30 @@
 
 import Foundation
 import ComposableArchitecture
+import SwiftData
 
-@Reducer
-struct Transaction {
-    @ObservableState
-    struct State: Equatable, Identifiable {
-        let id = UUID()
-        var amount: Double
-        var description: String 
-        var type: TransactionType
-        var category: TransactionCategory
-        var date: Date = Date()
-        var fromAccount: String = ""
+@Model
+final class Transaction: Identifiable {
+    @Attribute(.unique) let id = UUID()
+    
+    var amount: Double
+    var _description: String
+    var type: TransactionType
+    var category: TransactionCategory
+    var date: Date = Date()
+    var fromAccount: String
+    var co2e: String?
+    
+    init(amount: Double, _description: String, type: TransactionType, category: TransactionCategory, fromAccount: String = "") {
+        self.amount = amount
+        self._description = _description
+        self.type = type
+        self.category = category
+        self.fromAccount = fromAccount
     }
 }
 
-enum TransactionType: String {
+enum TransactionType: String, Codable {
     case debit = "debit"
     case credit = "credit"
     
@@ -34,11 +42,15 @@ enum TransactionType: String {
     }
 }
 
-enum TransactionCategory: Equatable {
+enum TransactionCategory: Equatable, Codable, Identifiable {
+    var id: String {
+        activity_id
+    }
+    
     case electricity
     
     case fuel(Fuel)
-    enum Fuel: Equatable {
+    enum Fuel: Equatable, Codable {
         case petrol
         case diesel
     }
@@ -76,4 +88,27 @@ enum TransactionCategory: Equatable {
         case .water: "waterbottle.fill"
         }
     }
+}
+
+extension Transaction {
+    static let mock: [Transaction] = [
+        Transaction(
+            amount: 1200,
+            _description: "Electricity Bill",
+            type: .debit,
+            category: .electricity
+        ),
+        Transaction(
+            amount: 5000,
+            _description: "petrol",
+            type: .debit,
+            category: .fuel(.petrol)
+        ),
+        Transaction(
+            amount: 200,
+            _description: "Water Bill",
+            type: .debit,
+            category: .water
+        )
+    ]
 }
