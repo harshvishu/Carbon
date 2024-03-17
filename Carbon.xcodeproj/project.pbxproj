@@ -37,6 +37,7 @@
 		3A2CE9062BA567530021B106 /* EmissionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE9052BA567530021B106 /* EmissionDetailsView.swift */; };
 		3A2CE9092BA595FF0021B106 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 3A2CE9082BA595FF0021B106 /* CodeScanner */; };
 		3A2CE90B2BA596C70021B106 /* ScanToPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE90A2BA596C70021B106 /* ScanToPayView.swift */; };
+		3A2CE90D2BA6B6AD0021B106 /* TransactionEmissionsCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CE90C2BA6B6AD0021B106 /* TransactionEmissionsCalculatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		3A2CE9032BA565BC0021B106 /* EmissionAPIVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmissionAPIVersion.swift; sourceTree = "<group>"; };
 		3A2CE9052BA567530021B106 /* EmissionDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmissionDetailsView.swift; sourceTree = "<group>"; };
 		3A2CE90A2BA596C70021B106 /* ScanToPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanToPayView.swift; sourceTree = "<group>"; };
+		3A2CE90C2BA6B6AD0021B106 /* TransactionEmissionsCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionEmissionsCalculatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				3A2CE8EF2BA4C78A0021B106 /* TransactionDetailsView.swift */,
 				3A2CE9052BA567530021B106 /* EmissionDetailsView.swift */,
 				3A2CE90A2BA596C70021B106 /* ScanToPayView.swift */,
+				3A2CE90C2BA6B6AD0021B106 /* TransactionEmissionsCalculatorView.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				3A2CE9042BA565BC0021B106 /* EmissionAPIVersion.swift in Sources */,
 				3A2CE9062BA567530021B106 /* EmissionDetailsView.swift in Sources */,
 				3A2CE8EC2BA4C76A0021B106 /* TransactionsListView.swift in Sources */,
+				3A2CE90D2BA6B6AD0021B106 /* TransactionEmissionsCalculatorView.swift in Sources */,
 				3A2CE8DB2BA4C2830021B106 /* CardView.swift in Sources */,
 				3A2CE8FA2BA548320021B106 /* Database.swift in Sources */,
 				3A2CE8EE2BA4C7780021B106 /* TransactionRowView.swift in Sources */,

@@ -7,18 +7,18 @@
 
 import Foundation
 
-struct EmissionsQuery: Codable, Sendable {
+struct EmissionsQuery: Codable, Sendable, Equatable {
     var emission_factor: EmissionFactor
     var parameters: Parameters
     
-    struct EmissionFactor: Codable, Sendable {
+    struct EmissionFactor: Codable, Sendable, Equatable {
         var activity_id: String
         var data_version: String = "^10"
-        var region_fallback = true
-        var region = "IN"   // India for now
+//        var region_fallback = true
+//        var region = "IN"   // India for now
     }
     
-    struct Parameters: Codable, Sendable {
+    struct Parameters: Codable, Sendable, Equatable {
         var energy: Double?
         var energy_unit: EnergyUnit?
         
@@ -39,13 +39,17 @@ struct EmissionsQuery: Codable, Sendable {
         
         var passengers: Int?
         
+        init() {
+            
+        }
+        
         init(energy: Double, energy_unit: EnergyUnit) {
             self.energy = energy
             self.energy_unit = energy_unit
         }
         
         /// Money (Cash)
-        init(money: Double, money_unit: MoneyUnit) {
+        init(money: Double, money_unit: MoneyUnit = .inr) {
             self.money = money
             self.money_unit = money_unit
         }
@@ -85,31 +89,35 @@ struct EmissionsQuery: Codable, Sendable {
         }
     }
     
-    enum EnergyUnit: String, Codable, Sendable {
+    enum EnergyUnit: String, Codable, Sendable, Equatable {
         case Wh, kWh, MWh
     }
     
-    enum MoneyUnit: String, Codable, Sendable {
+    enum MoneyUnit: String, Codable, Sendable, Equatable {
         case inr, eur, usd
     }
     
-    enum TimeUnit: String, Codable, Sendable {
+    enum TimeUnit: String, Codable, Sendable, Equatable {
        case ms, s, m, h, day, year
     }
     
-    enum DistanceUnit: String, Codable, Sendable {
+    enum DistanceUnit: String, Codable, Sendable, Equatable {
        case m, km, ft, mi
     }
     
-    enum VolumeUnit: String, Codable, Sendable {
+    enum VolumeUnit: String, Codable, Sendable, Equatable {
         case ml, l, gallons_us
     }
     
-    enum WeightUnit: String, Codable, Sendable {
+    enum WeightUnit: String, Codable, Sendable, Equatable {
         case g, kg, t, lb, ton
     }
     
     func jsonData() throws -> Data {
         return try JSONEncoder().encode(self)
+    }
+    
+    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
+        return String(data: try self.jsonData(), encoding: encoding)
     }
 }

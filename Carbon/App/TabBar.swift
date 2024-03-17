@@ -67,10 +67,6 @@ struct TabBarView: View {
                 .hideNativeTabBar()
                 .tag(Tab.pay)
             
-            Text("Notifications")
-                .hideNativeTabBar()
-                .tag(Tab.notifications)
-            
             Text("Emissions")
                 .hideNativeTabBar()
                 .tag(Tab.carbon)

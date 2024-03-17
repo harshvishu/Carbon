@@ -63,11 +63,17 @@ struct RootView: View {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
                             // TODO: move to scanner
-                            @Dependency(\.transactionDatabase.add) var add
-                            let transaction = Transaction(amount: 200, _description: "Electricity", type: .debit, category: .electricity)
-                            try? add(transaction)
+//                            @Dependency(\.transactionDatabase.add) var add
+//                            let category: TransactionCategory = .domesticFlight
+//                            let transaction = Transaction(
+//                                amount: 10000,
+//                                _description: category.name,
+//                                type: .debit,
+//                                category: category
+//                            )
+//                            try? add(transaction)
                         } label: {
-                            Image(systemName: "qrcode.viewfinder")
+                            Image(systemName: "bell.badge")
                                 .frame(width: 32, height: 32)
                                 .clipped()
                         }

@@ -58,11 +58,11 @@ struct EmissionDetailsView: View {
                         }
                     }
                     
-                    if let region = emissionFactor.region {
-                        LabeledContent("Region") {
-                            Text(region)
-                        }
-                    }
+//                    if let region = emissionFactor.region {
+//                        LabeledContent("Region") {
+//                            Text(region)
+//                        }
+//                    }
                     
                     if let category = emissionFactor.category {
                         LabeledContent("Category") {

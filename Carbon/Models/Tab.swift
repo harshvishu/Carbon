@@ -12,19 +12,15 @@ enum Tab: CaseIterable, Identifiable {
     case dashboard
     case cards
     case pay
-    case notifications
     case carbon
     
     var showTitle: Bool {
         switch self {
-            
         case .dashboard:
             return false
         case .cards:
             return false
         case .pay:
-            return false
-        case .notifications:
             return false
         case .carbon:
             return false
@@ -38,11 +34,9 @@ enum Tab: CaseIterable, Identifiable {
         case .cards:
             "Cards"
         case .pay:
-            ""
-        case .notifications:
-            "Notifications"
+            "Pay"
         case .carbon:
-            ""
+            "Emissions"
         }
     }
     
@@ -59,8 +53,6 @@ enum Tab: CaseIterable, Identifiable {
             Image(systemName: "creditcard.fill")
         case .pay:
             Image(systemName: "qrcode.viewfinder")
-        case .notifications:
-            Image(systemName: "bell.badge")
         case .carbon:
             EntryWidgetView()
         }

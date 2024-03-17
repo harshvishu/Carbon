@@ -27,6 +27,7 @@ struct TransactionRow {
         enum Delegate: Equatable {
             case showEmissions(Emissions)
             case showTransactionDetails(Transaction)
+            case emissionsFetchError
         }
     }
     
@@ -41,7 +42,8 @@ struct TransactionRow {
                 } else {
                     return .run { [state = state] send in
                         // TODO: use real data
-                        let result = try await climateAPIClient.estimate(query: .init(emission_factor: .init(activity_id: state.transaction.category.activity_id), parameters: .init(energy: 200, energy_unit: .kWh)))
+                        let result = try await climateAPIClient.estimate(query: state.transaction.category.query(money: state.transaction.amount))
+                        guard result.co2E != nil else {return await send(.delegate(.emissionsFetchError))}
                         await send(.emissionsFetched(result))
                         await send(.delegate(.showEmissions(result)))
                     }
@@ -66,8 +68,10 @@ struct TransactionRowView: View {
         NavigationLink(state: Root.Path.State.transactionDetails(TransactionDetail.State(transaction: store.transaction))) {
             HStack(alignment: .center) {
                 Image(systemName: store.transaction.type.icon)
-                    .foregroundStyle(.primary)
                     .font(.title.weight(.medium))
+                    .symbolVariant(.fill.circle)
+                    .symbolRenderingMode(.hierarchical)
+                    .foregroundStyle(store.transaction.type == .credit ? .green : .red)
                 
                 VStack(alignment: .leading) {
                     Text(store.transaction._description)
@@ -83,7 +87,7 @@ struct TransactionRowView: View {
                 Spacer()
                 
                 VStack(alignment: .trailing) {
-                    Text("$ \(store.transaction.amount, specifier: "%2.2f")")
+                    Text("₹ \(store.transaction.amount, specifier: "%2.2f")")
                         .font(.headline)
                         .padding(.horizontal, 8)
                     
@@ -119,19 +123,21 @@ struct TransactionRowView: View {
                     }
                     .buttonStyle(.plain)
                     
-                    Spacer()
+                    
+                    Group {
+//                        Text(store.transaction.emissions?.co2E ?? 0.0, format: .number.precision(.fractionLength(2)))
+//                        + Text(store.transaction.emissions?.co2EUnit ?? "")
+                        
+                        Image(systemName: "leaf.fill")
+                    }
+                    .font(.system(size: 9))
+                    .fontWeight(.medium)
+                    .foregroundStyle(.green)
+                    .padding(.horizontal, 4)
+                    .padding(.vertical, 2)
+                    .opacity(store.transaction.category.isGreen ? 1 : 0)
                 }
-                //            .onTapGesture {
-                //                // TODO: If data exists navigate to emissions page or call the api then navigate
-                //                Task {
-                //                    do {
-                //                        let result = try await climateAPIClient.estimate(query: .init(emission_factor: .init(activity_id: store.transaction.category.activity_id), parameters: .init(energy: 200, energy_unit: .kWh)))
-                //                        dump(result)
-                //                    } catch {
-                //                        print(error)
-                //                    }
-                //                }
-                //            }
+                .frame(alignment: .topTrailing)
             }
             .lineLimit(1)
         }

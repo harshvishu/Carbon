@@ -10,7 +10,7 @@ import CodeScanner
 
 struct ScanToPayView: View {
     var body: some View {
-        CodeScannerView(codeTypes: [.qr], simulatedData: TransactionCategory.travel(.domesticFlight).activity_id) { response in
+        CodeScannerView(codeTypes: [.qr], simulatedData: TransactionCategory.domesticFlight.activity_id) { response in
             switch response {
             case .success(let result):
                 print("Found code: \(result.string)")

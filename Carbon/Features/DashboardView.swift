@@ -68,7 +68,7 @@ struct Dashboard{
 struct DashboardView: View {
     let store: StoreOf<Dashboard>
     
-    let quickActions: [TransactionCategory] = [.electricity, .fuel(.petrol), .water]
+    let quickActions: [TransactionCategory] = [.electricity, .petrol, .water]
     
     var body: some View {
         
@@ -124,6 +124,7 @@ struct DashboardView: View {
             .listStyle(.plain)
             .listRowInsets(.none)
         }
+        .safeAreaPadding(.bottom, 55)
         .scrollIndicators(.hidden)
         .zIndex(1)
     }

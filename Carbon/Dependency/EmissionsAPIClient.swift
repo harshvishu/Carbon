@@ -31,6 +31,7 @@ extension EmissionsAPIClient: DependencyKey {
         try request.httpBody = query.jsonData()
         
         print("Sending estimate API request...")
+        print(try? query.jsonString())
         dump(request)
         
         let (data, _) = try await URLSession.shared.data(for: request)
